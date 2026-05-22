@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Build Day</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Build Day home">
+        <span class="brand-mark"></span>
+        <span>Build Day</span>
+      </a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#schedule">Schedule</a>
+        <a href="#projects">Projects</a>
+        <a href="#why">Why It Matters</a>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">September 1</p>
+          <h1 id="hero-title">Build Day</h1>
+          <p class="hero-text">
+            A focused day where students learn a fresh Roblox-style project,
+            code their own game, then use creative free time to keep building.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#schedule">See the day</a>
+            <a class="button secondary" href="#projects">View projects</a>
+          </div>
+        </div>
+
+        <div class="builder-stage" aria-label="Animated block building scene">
+          <div class="sun"></div>
+          <div class="cloud cloud-one"></div>
+          <div class="cloud cloud-two"></div>
+          <div class="tower">
+            <span class="block block-red"></span>
+            <span class="block block-blue"></span>
+            <span class="block block-green"></span>
+            <span class="block block-yellow"></span>
+            <span class="block block-purple"></span>
+            <span class="block block-cyan"></span>
+          </div>
+          <div class="avatar">
+            <span class="head"></span>
+            <span class="body"></span>
+            <span class="arm left-arm"></span>
+            <span class="arm right-arm"></span>
+            <span class="leg left-leg"></span>
+            <span class="leg right-leg"></span>
+          </div>
+          <div class="code-panel">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-details" aria-label="Event details">
+        <article>
+          <span class="detail-label">Date</span>
+          <strong>September 1</strong>
+        </article>
+        <article>
+          <span class="detail-label">Length</span>
+          <strong>1 hour 10 minutes</strong>
+        </article>
+        <article>
+          <span class="detail-label">Main Goal</span>
+          <strong>Code your own game</strong>
+        </article>
+      </section>
+
+      <section class="section" id="schedule">
+        <div class="section-heading">
+          <p class="eyebrow">Clear plan</p>
+          <h2>A compact class that keeps moving</h2>
+        </div>
+        <div class="timeline">
+          <article class="timeline-item active">
+            <span class="time">0:00-0:15</span>
+            <h3>Learn a new project</h3>
+            <p>
+              The day starts with a quick walkthrough of the game idea,
+              key scripts, controls, and the build goal.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <span class="time">0:15-0:55</span>
+            <h3>Code the game</h3>
+            <p>
+              Students build the core gameplay, test their work, fix problems,
+              and make the game playable.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <span class="time">0:55-1:10</span>
+            <h3>Creative free time</h3>
+            <p>
+              Builders add their own ideas: new levels, better art, special
+              effects, bonus rules, or fun surprises.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split" id="projects">
+        <div>
+          <p class="eyebrow">Student outcomes</p>
+          <h2>Everyone leaves with something they made</h2>
+          <p>
+            Build Day is designed for makers who want to turn ideas into a real
+            playable game. The format is short enough to stay focused and
+            detailed enough to feel meaningful.
+          </p>
+        </div>
+        <div class="project-grid">
+          <article>
+            <span class="mini-block red"></span>
+            <h3>Game idea</h3>
+            <p>Pick a clear challenge, goal, or world to build around.</p>
+          </article>
+          <article>
+            <span class="mini-block blue"></span>
+            <h3>Code</h3>
+            <p>Use scripts to create movement, scoring, rules, and feedback.</p>
+          </article>
+          <article>
+            <span class="mini-block green"></span>
+            <h3>Play test</h3>
+            <p>Run the game, spot bugs, and improve what feels confusing.</p>
+          </article>
+          <article>
+            <span class="mini-block yellow"></span>
+            <h3>Customize</h3>
+            <p>Add personal style during free time so each game feels unique.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section feature-band" id="why">
+        <div class="feature-copy">
+          <p class="eyebrow">For Roblox leadership</p>
+          <h2>A day that celebrates young builders</h2>
+          <p>
+            Build Day shows that coding can feel creative, social, and
+            achievable. It gives students a memorable first step into building
+            games instead of only playing them.
+          </p>
+        </div>
+        <button class="spark-button" type="button" id="sparkButton">
+          Add build energy
+        </button>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Build Day happens September 1. Learn, code, play test, and create.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
