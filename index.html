@@ -14,6 +14,7 @@
       </a>
       <nav class="site-nav" aria-label="Primary navigation">
         <a href="#schedule">Schedule</a>
+        <a href="#schedule-builder">Countdown</a>
         <a href="#projects">Projects</a>
         <a href="#why">Why It Matters</a>
       </nav>
@@ -70,7 +71,7 @@
         </article>
         <article>
           <span class="detail-label">Length</span>
-          <strong>1 hour 10 minutes</strong>
+          <strong>3 hours</strong>
         </article>
         <article>
           <span class="detail-label">Main Goal</span>
@@ -85,29 +86,183 @@
         </div>
         <div class="timeline">
           <article class="timeline-item active">
-            <span class="time">0:00-0:15</span>
+            <span class="time">3:00 PM-3:20 PM</span>
             <h3>Learn a new project</h3>
             <p>
-              The day starts with a quick walkthrough of the game idea,
-              key scripts, controls, and the build goal.
+              The day starts with the game idea, build goal, controls, and the
+              main coding skills students will use.
             </p>
           </article>
           <article class="timeline-item">
-            <span class="time">0:15-0:55</span>
+            <span class="time">3:20 PM-3:50 PM</span>
+            <h3>Learn more skills</h3>
+            <p>
+              Students learn extra scripts, game rules, testing habits, and
+              how to make their project feel more complete.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <span class="time">3:50 PM-4:05 PM</span>
+            <h3>Review the goal</h3>
+            <p>
+              Everyone checks what they are making, what they learned, and
+              what needs to work before coding starts.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <span class="time">4:05 PM-5:00 PM</span>
             <h3>Code the game</h3>
             <p>
-              Students build the core gameplay, test their work, fix problems,
-              and make the game playable.
+              Students build the core gameplay, test their work, fix bugs, add
+              polish, and make the game playable.
             </p>
           </article>
           <article class="timeline-item">
-            <span class="time">0:55-1:10</span>
+            <span class="time">5:00 PM-5:25 PM</span>
             <h3>Creative free time</h3>
             <p>
               Builders add their own ideas: new levels, better art, special
-              effects, bonus rules, or fun surprises.
+              effects, bonus rules, or surprises.
             </p>
           </article>
+          <article class="timeline-item">
+            <span class="time">5:25 PM-5:45 PM</span>
+            <h3>Fun coding</h3>
+            <p>
+              Students can make any small coding project they want, even if it
+              is different from the main game.
+            </p>
+          </article>
+          <article class="timeline-item">
+            <span class="time">5:45 PM-6:00 PM</span>
+            <h3>Play time</h3>
+            <p>
+              The last 15 minutes are for playing games, testing friends'
+              creations, and ending the day with something fun.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section scheduler" id="schedule-builder">
+        <div class="section-heading">
+          <p class="eyebrow">Schedule it</p>
+          <h2>Set the Build Day start time</h2>
+          <p>
+            Choose the exact date and time for Build Day, then watch the
+            countdown until the event starts.
+          </p>
+        </div>
+
+        <div class="schedule-tabs" role="tablist" aria-label="Build Day tabs">
+          <button
+            class="tab-button active"
+            type="button"
+            role="tab"
+            aria-selected="true"
+            aria-controls="plan-panel"
+            id="plan-tab"
+          >
+            Day plan
+          </button>
+          <button
+            class="tab-button"
+            type="button"
+            role="tab"
+            aria-selected="false"
+            aria-controls="countdown-panel"
+            id="countdown-tab"
+          >
+            Countdown
+          </button>
+        </div>
+
+        <div
+          class="tab-panel active"
+          id="plan-panel"
+          role="tabpanel"
+          aria-labelledby="plan-tab"
+        >
+          <div class="plan-list">
+            <article>
+              <span>3:00 PM</span>
+              <strong>Kickoff</strong>
+              <p>Open the project, explain the goal, and start learning.</p>
+            </article>
+            <article>
+              <span>3:20 PM</span>
+              <strong>More skills</strong>
+              <p>Learn extra scripts, rules, testing, and game polish.</p>
+            </article>
+            <article>
+              <span>3:50 PM</span>
+              <strong>Review</strong>
+              <p>Check what to make, what was learned, and the build goal.</p>
+            </article>
+            <article>
+              <span>4:05 PM</span>
+              <strong>Build time</strong>
+              <p>Code, test, fix bugs, and make the gameplay work.</p>
+            </article>
+            <article>
+              <span>5:00 PM</span>
+              <strong>Free build</strong>
+              <p>Add personal ideas to the main game.</p>
+            </article>
+            <article>
+              <span>5:25 PM</span>
+              <strong>Fun coding</strong>
+              <p>Make any small project you want.</p>
+            </article>
+            <article>
+              <span>5:45 PM</span>
+              <strong>Play time</strong>
+              <p>Play games for the final 15 minutes before 6:00 PM.</p>
+            </article>
+          </div>
+        </div>
+
+        <div
+          class="tab-panel"
+          id="countdown-panel"
+          role="tabpanel"
+          aria-labelledby="countdown-tab"
+          hidden
+        >
+          <form class="countdown-form" id="countdownForm">
+            <label for="eventDateTime">Build Day date and time</label>
+            <div class="input-row">
+              <input id="eventDateTime" name="eventDateTime" type="datetime-local" />
+              <button class="button primary" type="submit">Save schedule</button>
+            </div>
+          </form>
+
+          <div class="countdown-card" aria-live="polite">
+            <p class="countdown-label" id="countdownLabel">
+              Countdown to September 1 at 3:00 PM
+            </p>
+            <div class="countdown-grid">
+              <article>
+                <strong id="days">0</strong>
+                <span>Days</span>
+              </article>
+              <article>
+                <strong id="hours">0</strong>
+                <span>Hours</span>
+              </article>
+              <article>
+                <strong id="minutes">0</strong>
+                <span>Minutes</span>
+              </article>
+              <article>
+                <strong id="seconds">0</strong>
+                <span>Seconds</span>
+              </article>
+            </div>
+            <p class="save-message" id="saveMessage">
+              Default schedule: September 1, 2026 at 3:00 PM.
+            </p>
+          </div>
         </div>
       </section>
 

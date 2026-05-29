@@ -1,8 +1,23 @@
 const sparkButton = document.querySelector("#sparkButton");
 const stage = document.querySelector(".builder-stage");
 const timelineItems = document.querySelectorAll(".timeline-item");
+const tabButtons = document.querySelectorAll(".tab-button");
+const tabPanels = document.querySelectorAll(".tab-panel");
+const countdownForm = document.querySelector("#countdownForm");
+const eventDateTime = document.querySelector("#eventDateTime");
+const countdownLabel = document.querySelector("#countdownLabel");
+const saveMessage = document.querySelector("#saveMessage");
+const countdownParts = {
+  days: document.querySelector("#days"),
+  hours: document.querySelector("#hours"),
+  minutes: document.querySelector("#minutes"),
+  seconds: document.querySelector("#seconds"),
+};
 
 let sparkCount = 0;
+let eventDate = new Date(
+  localStorage.getItem("buildDayDateTime") || "2026-09-01T15:00"
+);
 
 sparkButton.addEventListener("click", () => {
   sparkCount += 1;
@@ -26,6 +41,89 @@ timelineItems.forEach((item) => {
     timelineItems.forEach((card) => card.classList.remove("active"));
     item.classList.add("active");
   });
+});
+
+tabButtons.forEach((button) => {
+  button.addEventListener("click", () => {
+    const panelId = button.getAttribute("aria-controls");
+
+    tabButtons.forEach((tab) => {
+      const isActive = tab === button;
+      tab.classList.toggle("active", isActive);
+      tab.setAttribute("aria-selected", String(isActive));
+    });
+
+    tabPanels.forEach((panel) => {
+      const isActive = panel.id === panelId;
+      panel.classList.toggle("active", isActive);
+      panel.hidden = !isActive;
+    });
+  });
+});
+
+function formatInputValue(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  const hours = String(date.getHours()).padStart(2, "0");
+  const minutes = String(date.getMinutes()).padStart(2, "0");
+
+  return `${year}-${month}-${day}T${hours}:${minutes}`;
+}
+
+function formatDisplayDate(date) {
+  return date.toLocaleString([], {
+    month: "long",
+    day: "numeric",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+  });
+}
+
+function updateCountdown() {
+  const now = new Date();
+  const distance = eventDate.getTime() - now.getTime();
+
+  countdownLabel.textContent = `Countdown to ${formatDisplayDate(eventDate)}`;
+
+  if (distance <= 0) {
+    countdownParts.days.textContent = "0";
+    countdownParts.hours.textContent = "0";
+    countdownParts.minutes.textContent = "0";
+    countdownParts.seconds.textContent = "0";
+    saveMessage.textContent = "Build Day is here. Time to code your game.";
+    return;
+  }
+
+  const totalSeconds = Math.floor(distance / 1000);
+  const days = Math.floor(totalSeconds / 86400);
+  const hours = Math.floor((totalSeconds % 86400) / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const seconds = totalSeconds % 60;
+
+  countdownParts.days.textContent = days;
+  countdownParts.hours.textContent = hours;
+  countdownParts.minutes.textContent = minutes;
+  countdownParts.seconds.textContent = seconds;
+}
+
+eventDateTime.value = formatInputValue(eventDate);
+updateCountdown();
+window.setInterval(updateCountdown, 1000);
+
+countdownForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  if (!eventDateTime.value) {
+    saveMessage.textContent = "Pick a date and time first.";
+    return;
+  }
+
+  eventDate = new Date(eventDateTime.value);
+  localStorage.setItem("buildDayDateTime", eventDateTime.value);
+  saveMessage.textContent = `Saved schedule: ${formatDisplayDate(eventDate)}.`;
+  updateCountdown();
 });
 
 const style = document.createElement("style");
